@@ -1,7 +1,22 @@
 const initState = [
-  { id: 1, name: "learn Yoga", completed: false, priority: "Medium" },
-  { id: 2, name: "learn Redux", completed: false, priority: "High" },
-  { id: 3, name: "learn JS", completed: false, priority: "Low" },
+  {
+    id: "e3d68094-6250-4ba5-8bcf-bf4c468673da",
+    name: "learn Yoga",
+    completed: false,
+    priority: "Medium",
+  },
+  {
+    id: "e3d68094-6250-4ba5-8bcf-bf4c568673da",
+    name: "learn Redux",
+    completed: true,
+    priority: "High",
+  },
+  {
+    id: "e3d68094-6250-4ba5-8bcf-bf4c668673da",
+    name: "learn JS",
+    completed: false,
+    priority: "Low",
+  },
 ];
 
 const todoListReducer = (state = initState, action) => {

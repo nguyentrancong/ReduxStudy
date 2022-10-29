@@ -4,24 +4,33 @@
 //     return todo.name.includes(state.filters.search);
 //   });
 
-import { createSelector } from "reselect";
-
 //   return todosRemaining;
 // };
 
 // // text search
 // export const searchTextSelector = (state) => state.filters.search;
 
+import { createSelector } from "reselect";
+
 // cach khac dung thu vien reselect
-export const searchTextSelector = (state) => state.filters.search;
 export const todoListSelector = (state) => state.todoList;
+
+export const searchTextSelector = (state) => state.filters.search;
+export const filterStatusSelector = (state) => state.filters.status;
 
 export const todosRemainingSelector = createSelector(
   todoListSelector,
   searchTextSelector,
-  (todoList, searchText) => {
+  filterStatusSelector,
+  (todoList, searchText, status) => {
     return todoList.filter((todo) => {
-      return todo.name.includes(searchText);
+      if (status === "All") {
+        return todo.name.includes(searchText);
+      }
+      return (
+        todo.name.includes(searchText) &&
+        (status === "Completed" ? todo.completed : !todo.completed)
+      );
     });
   }
 );
