@@ -45,9 +45,10 @@ export default function TodoList() {
         <Todo name="Learn JavaScript" prioriry="Low" /> */}
         {todoList.map((todo) => (
           <Todo
+            key={todo.id}
+            id={todo.id}
             name={todo.name}
             prioriry={todo.prioriry}
-            key={todo.id}
             completed={todo.completed}
           />
         ))}
