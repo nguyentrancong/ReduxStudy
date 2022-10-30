@@ -10,7 +10,7 @@
 // // text search
 // export const searchTextSelector = (state) => state.filters.search;
 
-import { createSelector } from "reselect";
+import { createSelector } from "@reduxjs/toolkit";
 
 // cach khac dung thu vien reselect
 export const todoListSelector = (state) => state.todoList;

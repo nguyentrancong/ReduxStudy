@@ -14,7 +14,6 @@ export default function TodoList() {
   const todoList = useSelector(todosRemainingSelector);
 
   const handleAddButtonClick = () => {
-    // dispatch
     dispatch(
       addTodo({
         id: uuidv4(),
@@ -48,7 +47,7 @@ export default function TodoList() {
             key={todo.id}
             id={todo.id}
             name={todo.name}
-            prioriry={todo.prioriry}
+            priority={todo.priority}
             completed={todo.completed}
           />
         ))}

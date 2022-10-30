@@ -1,6 +1,7 @@
-import { combineReducers } from "redux";
-import filtersReducer from "./slices.js/filtersSlice";
-import todoListReducer from "./slices.js/todosSlice";
+// import { configureStore } from "@reduxjs/toolkit";
+// import { combineReducers } from "redux";
+// import filtersReducer from "./slices.js/filtersSlice";
+// import todoListReducer from "./slices.js/todosSlice";
 
 // const rootReducer = (state = {}, action) => {
 //   console.log("rootReducer: ", { state, action });
@@ -11,9 +12,7 @@ import todoListReducer from "./slices.js/todosSlice";
 // };
 
 // su dung combine reducers thay cho cach tren
-const rootReducer = combineReducers({
-  filters: filtersReducer,
-  todoList: todoListReducer,
-});
-
-export default rootReducer;
+// const rootReducer = combineReducers({
+//   filters: filtersReducer,
+//   todoList: todoListReducer,
+// });

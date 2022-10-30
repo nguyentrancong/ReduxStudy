@@ -1,3 +1,5 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 const initState = [
   {
     id: "e3d68094-6250-4ba5-8bcf-bf4c468673da",
@@ -19,22 +21,44 @@ const initState = [
   },
 ];
 
-const todoListReducer = (state = initState, action) => {
-  console.log({ state, action });
-  switch (action.type) {
-    case "todoList/addTodo":
-      return [...state, action.payload];
+// const todoListReducer = (state = initState, action) => {
+//   console.log({ state, action });
+//   switch (action.type) {
+//     case "todoList/addTodo":
+//       return [...state, action.payload];
 
-    case "todoList/toggleTodoStatus":
-      return state.map((todo) =>
-        todo.id === action.payload
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      );
+//     case "todoList/toggleTodoStatus":
+//       return state.map((todo) =>
+//         todo.id === action.payload
+//           ? { ...todo, completed: !todo.completed }
+//           : todo
+//       );
 
-    default:
-      return state;
-  }
-};
+//     default:
+//       return state;
+//   }
+// };
 
-export default todoListReducer;
+// export default todoListReducer;
+
+// Using redux toolkit
+export default createSlice({
+  name: "todoList",
+  initialState: initState,
+  reducers: {
+    addTodo: (state, action) => {
+      // console.log(`====>>>>addTodo|state : `, state);
+      // console.log(`====>>>>addTodo|: action`, action);
+      state.push(action.payload);
+    }, // {type: "todoList/addTodo"}
+
+    toggleTodoStatus: (state, action) => {
+      // console.log(`====>>>>toggleTodoStatus|state : `, state);
+      // console.log(`====>>>>toggleTodoStatus|: action`, action);
+      const currentTodo = state.find((todo) => todo.id === action.payload);
+      if (currentTodo) {
+        currentTodo.completed = !currentTodo.completed;
+      }
+    }, // {type: "todoList/toggleTodoStatus"}
+  },
+});

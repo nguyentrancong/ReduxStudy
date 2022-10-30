@@ -9,7 +9,7 @@ const priorityColorMapping = {
   Low: "gray",
 };
 
-export default function Todo({ id, name, prioriry, completed }) {
+export default function Todo({ id, name, priority, completed }) {
   const [checked, setChecked] = useState(completed);
 
   const dispatch = useDispatch();
@@ -30,8 +30,8 @@ export default function Todo({ id, name, prioriry, completed }) {
       <Checkbox checked={checked} onChange={toggleCheckbox}>
         {name}
       </Checkbox>
-      <Tag color={priorityColorMapping[prioriry]} style={{ margin: 0 }}>
-        {prioriry}
+      <Tag color={priorityColorMapping[priority]} style={{ margin: 0 }}>
+        {priority}
       </Tag>
     </Row>
   );
