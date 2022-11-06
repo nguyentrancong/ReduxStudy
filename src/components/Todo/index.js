@@ -2,6 +2,7 @@ import { Row, Tag, Checkbox } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleTodoStatus } from "../../redux/actions";
+import { updateTodo } from "../../redux/slices.js/todosSlice";
 
 const priorityColorMapping = {
   High: "red",
@@ -16,7 +17,10 @@ export default function Todo({ id, name, priority, completed }) {
 
   const toggleCheckbox = () => {
     setChecked(!checked);
-    dispatch(toggleTodoStatus(id));
+    // dispatch(toggleTodoStatus(id));
+
+    // implement thunk with api
+    dispatch(updateTodo(id));
   };
 
   return (

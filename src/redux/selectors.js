@@ -13,7 +13,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 
 // cach khac dung thu vien reselect
-export const todoListSelector = (state) => state.todoList;
+export const todoListSelector = (state) => state.todoList.todos;
 
 export const searchTextSelector = (state) => state.filters.search;
 export const filterStatusSelector = (state) => state.filters.status;

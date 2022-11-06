@@ -1,10 +1,10 @@
 import { Col, Row, Input, Button, Select, Tag } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../../redux/actions";
 import Todo from "../Todo";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { todosRemainingSelector } from "../../redux/selectors";
+import { addNewTodo, addTodos } from "../../redux/slices.js/todosSlice";
 
 export default function TodoList() {
   const [todoName, setTodoName] = useState("");
@@ -14,14 +14,35 @@ export default function TodoList() {
   const todoList = useSelector(todosRemainingSelector);
 
   const handleAddButtonClick = () => {
+    // dispatch(
+    //   addTodo({
+    //     id: uuidv4(),
+    //     name: todoName,
+    //     priority: priority,
+    //     completed: false,
+    //   })
+    // );
+
+    // implement thunk test
+    // dispatch(
+    //   addTodos({
+    //     id: uuidv4(),
+    //     name: todoName,
+    //     priority: priority,
+    //     completed: false,
+    //   })
+    // );
+
+    //  implement thunk with api
     dispatch(
-      addTodo({
+      addNewTodo({
         id: uuidv4(),
         name: todoName,
         priority: priority,
         completed: false,
       })
     );
+
     setPriority("Medium");
     setTodoName("");
   };
